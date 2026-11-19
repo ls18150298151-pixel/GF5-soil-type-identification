@@ -1,0 +1,21 @@
+{
+  "status": "REGISTERED_BEFORE_COMPLETE_MAIN_RESULTS",
+  "registered_date": "2026-10-10",
+  "main_cutoff": 0.001,
+  "sensitivity_cutoffs": [
+    0.0005,
+    0.002
+  ],
+  "policy": "R",
+  "branch": "FS",
+  "n_outer_folds": 5,
+  "n_inner_folds": 4,
+  "selection_scope": "Use the primary outer-training-only backbone, module choice and inner permutation records for each classifier family. Change only mean permutation loss cutoff; retain positive_folds >= 2 and min_delta > -0.01.",
+  "selection_metric": "The frozen main inner ranking rule, including all tie breakers.",
+  "training_rule": "Retune every model candidate in every changed family/subset using the same inner folds, then refit its winner on outer training. Select classifier family using inner scores only. The two sensitivity cutoffs cannot replace the registered main cutoff based on outer performance.",
+  "exact_reuse_rule": "If a sensitivity subset equals the main subset for a family/outer fold, reuse that family's complete main inner candidate and outer checkpoint, with SHA evidence. No unchanged-subset refitting is needed.",
+  "maximum_additional_inner_classifier_fits": 1440,
+  "maximum_additional_outer_refits": 40,
+  "gate": "Main result_acceptance must be PASS_FORMAL_RESULTS before execution.",
+  "interpretation": "Finite threshold sensitivity of the registered FS workflow on these data; neither an independent external validation nor a search for the best cutoff. Report all two alternatives regardless of their outcome."
+}

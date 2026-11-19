@@ -1,0 +1,58 @@
+{
+  "profile": "paper",
+  "output_dir": "runs/paper-raster",
+  "inputs": {
+    "samples_csv": "private/samples.csv",
+    "sample_encoding": "utf-8-sig",
+    "sample_crs": "EPSG:4496",
+    "projected_crs": "EPSG:32648",
+    "sample_fields": {
+      "sample_id": "sample_id",
+      "x": "x",
+      "y": "y",
+      "class_code": "class_code",
+      "is_virtual": "is_virtual"
+    },
+    "wavelengths_csv": "private/wavelengths.csv",
+    "spectra_csv": null,
+    "spectral_raster": "private/working_reflectance_280.dat",
+    "reflectance_scale": 10000,
+    "environment_csv": null,
+    "environment_rasters": {
+      "single_band": {
+        "DEM_Elevation_m": "private/environment/DEM_Elevation_m.tif",
+        "GLO30_Elevation_m": "private/environment/GLO30_Elevation_m.tif",
+        "LFORM_TPI_90m": "private/environment/LFORM_TPI_90m.tif",
+        "LFORM_TPI_270m": "private/environment/LFORM_TPI_270m.tif",
+        "LFORM_TPI_900m": "private/environment/LFORM_TPI_900m.tif",
+        "LFORM_TRI": "private/environment/LFORM_TRI.tif",
+        "LFORM_roughness_90m": "private/environment/LFORM_roughness_90m.tif",
+        "LFORM_relief_270m": "private/environment/LFORM_relief_270m.tif",
+        "LFORM_relief_900m": "private/environment/LFORM_relief_900m.tif",
+        "LFORM_mean_slope_pct_270m": "private/environment/LFORM_mean_slope_pct_270m.tif",
+        "LFORM_northness": "private/environment/LFORM_northness.tif",
+        "LFORM_eastness": "private/environment/LFORM_eastness.tif",
+        "HYDRO_valley_depth_270m": "private/environment/HYDRO_valley_depth_270m.tif",
+        "HYDRO_rsp_270m": "private/environment/HYDRO_rsp_270m.tif",
+        "HYDRO_TWI": "private/environment/HYDRO_TWI.tif",
+        "HYDRO_SPI": "private/environment/HYDRO_SPI.tif",
+        "HYDRO_log_flowacc": "private/environment/HYDRO_log_flowacc.tif",
+        "HYDRO_LS": "private/environment/HYDRO_LS.tif",
+        "HYDRO_dist_stream": "private/environment/HYDRO_dist_stream.tif",
+        "HYDRO_drain_density_900m": "private/environment/HYDRO_drain_density_900m.tif",
+        "HYDRO_HAND": "private/environment/HYDRO_HAND.tif",
+        "CLIM_bio1": "private/environment/CLIM_bio1.tif",
+        "CLIM_bio4": "private/environment/CLIM_bio4.tif",
+        "CLIM_bio7": "private/environment/CLIM_bio7.tif",
+        "CLIM_bio10": "private/environment/CLIM_bio10.tif",
+        "CLIM_bio12": "private/environment/CLIM_bio12.tif",
+        "CLIM_bio15": "private/environment/CLIM_bio15.tif",
+        "CLIM_bio17": "private/environment/CLIM_bio17.tif",
+        "CLIM_bio18": "private/environment/CLIM_bio18.tif"
+      },
+      "terrain_11_band": "private/environment/existing_terrain_11_band.dat",
+      "worldcover": "private/environment/worldcover_native_grid.tif"
+    },
+    "study_boundary": null
+  }
+}

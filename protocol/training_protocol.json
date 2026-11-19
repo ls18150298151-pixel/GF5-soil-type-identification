@@ -1,0 +1,109 @@
+{
+  "version": "luxi_training_contract_v2_20261010",
+  "class_order": [
+    "红壤",
+    "紫色土",
+    "燥红土",
+    "黄棕壤",
+    "石灰岩土",
+    "黄壤"
+  ],
+  "class_codes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "sample_policies": {
+    "R": "primary, nonvirtual-only ALL training/selection/preprocessing; nonvirtual validation",
+    "R+V": "paired sensitivity on identical validation IDs, only spatially eligible virtual training; every transform/selection independently refitted"
+  },
+  "selection": {
+    "primary": "arithmetic mean of FOUR inner Macro-F1; fixed labels 0..5; zero_division=0",
+    "secondary": "mean balanced_accuracy over six classes",
+    "tie_order": [
+      "mean_macro_f1 descending",
+      "mean_balanced_accuracy descending",
+      "std_macro_f1 ddof=0 ascending",
+      "mean actual encoded input dimension ascending",
+      "candidate_id lexical ascending"
+    ],
+    "tie_tolerance": 0,
+    "all_four_scores_required": true,
+    "final_reporting": "pooled five-outer nonvirtual OOF Macro-F1, BA, OA, Kappa, class P/R/F1, confusion matrix; never select with outer results"
+  },
+  "decision": {
+    "rule": "predict_proba -> reorder using actual classes_ -> finite, nonnegative, six-class and row-sum checks -> normalize roundoff -> argmax",
+    "probability_tie": "lowest fixed class code",
+    "forbid_predict_mixing": true,
+    "save_fields": [
+      "sample_id",
+      "policy",
+      "branch",
+      "outer_fold",
+      "inner_fold",
+      "candidate_id",
+      "seed",
+      "y_true",
+      "prob_0",
+      "prob_1",
+      "prob_2",
+      "prob_3",
+      "prob_4",
+      "prob_5",
+      "y_pred",
+      "fitted_classes"
+    ]
+  },
+  "imbalance": {
+    "strategies": [
+      "none",
+      "class_weight"
+    ],
+    "ordinary_smote": false,
+    "XGBoost": "sample_weight=n_train/(6*n_class[y]), computed from exact current eligible training labels",
+    "other_classifiers": "balanced constructor weight from exact current fit labels",
+    "validation_weights": false,
+    "missing_training_class": "fail, never repair weights from validation labels"
+  },
+  "branches": {
+    "N59": {
+      "include_spectral": false,
+      "modules": [
+        "T",
+        "H",
+        "C",
+        "L"
+      ],
+      "candidate_factors": 59
+    },
+    "I63": {
+      "include_spectral": false,
+      "modules": [
+        "T",
+        "E",
+        "H",
+        "C",
+        "L"
+      ],
+      "candidate_factors": 63
+    },
+    "FALL": {
+      "include_spectral": true,
+      "modules": [
+        "T",
+        "E",
+        "H",
+        "C",
+        "L"
+      ],
+      "candidate_factors": 63
+    },
+    "FS": {
+      "include_spectral": true,
+      "module_combinations": 32
+    }
+  }
+}

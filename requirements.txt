@@ -1,0 +1,13 @@
+# Analysis versions recorded by the November 18 submission and the formal run.
+numpy==2.2.6
+pandas==2.3.3
+scipy==1.15.3
+scikit-learn==1.7.2
+lightgbm==4.6.0
+xgboost==3.2.0
+joblib==1.5.3
+rasterio==1.4.4
+pyproj==3.7.1
+# Reporting and direct BLAS thread control.
+matplotlib==3.10.9
+threadpoolctl==3.5.0

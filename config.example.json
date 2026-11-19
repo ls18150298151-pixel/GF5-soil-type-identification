@@ -1,0 +1,24 @@
+{
+  "profile": "paper",
+  "output_dir": "runs/paper",
+  "inputs": {
+    "samples_csv": "private/samples.csv",
+    "sample_encoding": "utf-8-sig",
+    "sample_crs": "EPSG:4496",
+    "projected_crs": "EPSG:32648",
+    "sample_fields": {
+      "sample_id": "sample_id",
+      "x": "x",
+      "y": "y",
+      "class_code": "class_code",
+      "is_virtual": "is_virtual"
+    },
+    "wavelengths_csv": "private/wavelengths.csv",
+    "spectra_csv": "private/spectra.csv",
+    "spectral_raster": null,
+    "reflectance_scale": 10000,
+    "environment_csv": "private/environment.csv",
+    "environment_rasters": null,
+    "study_boundary": null
+  }
+}

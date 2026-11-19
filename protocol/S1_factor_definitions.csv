@@ -1,0 +1,64 @@
+No.,Factor name and code,Module,Definition,Native grid / neighborhood,Unit / scaling,Source
+1,Elevation from the original DEM (DEM_Elevation_m),T,Elevation from the original merged DEM,30 m; pixel at the sample location,m,Original merged DEM
+2,Slope (Terrain_Slope_deg),T,Band 1 of the terrain raster,30 m; pixel at the sample location,°,Existing terrain raster
+3,Sine of aspect (Terrain_Aspect_sin),T,Sine of aspect from band 2,30 m; pixel at the sample location,Dimensionless,Existing terrain raster
+4,Cosine of aspect (Terrain_Aspect_cos),T,Cosine of aspect from band 2,30 m; pixel at the sample location,Dimensionless,Existing terrain raster
+5,Hillshade (Terrain_Shaded_Relief),T,"Shaded Relief, band 3",30 m; pixel at the sample location,Source value,Existing terrain raster
+6,Profile convexity (Terrain_Profile_Convexity),T,"Profile Convexity, band 4",30 m; pixel at the sample location,Source value,Existing terrain raster
+7,Plan convexity (Terrain_Plan_Convexity),T,"Plan Convexity, band 5",30 m; pixel at the sample location,Source value,Existing terrain raster
+8,Longitudinal convexity (Terrain_Longitudinal_Convexity),T,"Longitudinal Convexity, band 6",30 m; pixel at the sample location,Source value,Existing terrain raster
+9,Cross-sectional convexity (Terrain_Cross_Sectional_Convexity),T,"Cross Sectional Convexity, band 7",30 m; pixel at the sample location,Source value,Existing terrain raster
+10,Minimum curvature (Terrain_Minimum_Curvature),T,"Minimum Curvature, band 8",30 m; pixel at the sample location,Source value,Existing terrain raster
+11,Maximum curvature (Terrain_Maximum_Curvature),T,"Maximum Curvature, band 9",30 m; pixel at the sample location,Source value,Existing terrain raster
+12,Terrain-fitting RMSE (Terrain_RMS_Error),T,"RMS Error, band 10",30 m; pixel at the sample location,Source value,Existing terrain raster
+13,Iron oxide index (IOI) (Eco_IOI),E,Ratio of red to blue reflectance,30 m; pixel at the sample location,Dimensionless,GF-5 AHSI OR
+14,Bare soil index (BSI) (Eco_BSI),E,Normalized difference between SWIR1 + red and near-infrared + blue reflectance,30 m; pixel at the sample location,Dimensionless,GF-5 AHSI OR
+15,Near-infrared–shortwave-infrared normalized difference index (NDWI) (Eco_NDWI),E,Normalized difference between near-infrared and SWIR1 reflectance,30 m; pixel at the sample location,Dimensionless,GF-5 AHSI OR
+16,Normalized difference vegetation index (NDVI) (Eco_NDVI),E,Normalized difference between near-infrared and red reflectance,30 m; pixel at the sample location,Dimensionless,GF-5 AHSI OR
+17,GLO-30 elevation (GLO30_Elevation_m),H,Elevation from the GLO-30 digital surface model,30 m; pixel at the sample location,m,Copernicus GLO-30
+18,Topographic position index (LFORM_TPI_90m),H,Central elevation minus mean neighborhood elevation,30 m; 7×7 cells (210 m),m,Derived from GLO-30
+19,Topographic position index (LFORM_TPI_270m),H,Central elevation minus mean neighborhood elevation,30 m; 19×19 cells (570 m),m,Derived from GLO-30
+20,Topographic position index (LFORM_TPI_900m),H,Central elevation minus mean neighborhood elevation,30 m; 61×61 cells (1830 m),m,Derived from GLO-30
+21,Central-to-neighborhood elevation difference (TRI) (LFORM_TRI),H,Absolute difference between the central elevation and the mean elevation of its 8 neighbors,30 m; 3×3 cells,m,Derived from GLO-30
+22,Elevation roughness (LFORM_roughness_90m),H,Standard deviation of neighborhood elevation,30 m; 7×7 cells (210 m),m,Derived from GLO-30
+23,Local relief (LFORM_relief_270m),H,Difference between the maximum and minimum neighborhood elevations,30 m; 19×19 cells (570 m),m,Derived from GLO-30
+24,Local relief (LFORM_relief_900m),H,Difference between the maximum and minimum neighborhood elevations,30 m; 61×61 cells (1830 m),m,Derived from GLO-30
+25,Mean percent slope (LFORM_mean_slope_pct_270m),H,"Neighborhood mean of tan(slope), multiplied by 100",30 m; 19×19 cells (570 m),%,Derived from GLO-30
+26,Northness (LFORM_northness),H,Cosine of aspect derived from GLO-30,30 m; pixel at the sample location,Dimensionless,Derived from GLO-30
+27,Eastness (LFORM_eastness),H,Sine of aspect derived from GLO-30,30 m; pixel at the sample location,Dimensionless,Derived from GLO-30
+28,Valley depth (HYDRO_valley_depth_270m),H,Maximum neighborhood elevation minus central elevation,30 m; 19×19 cells (570 m),m,Derived from GLO-30
+29,Relative slope position (HYDRO_rsp_270m),H,Relative position of the central elevation within the neighborhood elevation range,30 m; 19×19 cells (570 m),Dimensionless,Derived from GLO-30
+30,Topographic wetness index (TWI) (HYDRO_TWI),H,Natural logarithm of the ratio of specific catchment area to the tangent of slope,30 m; D8 flow routing,Logarithmic index,Derived from GLO-30
+31,Stream power index (SPI) (HYDRO_SPI),H,Natural logarithm of the product of specific catchment area and the tangent of slope,30 m; D8 flow routing,Logarithmic index,Derived from GLO-30
+32,Log-transformed flow accumulation (HYDRO_log_flowacc),H,ln(1 + number of flow-accumulation pixels),30 m; D8 flow routing,Logarithmic index,Derived from GLO-30
+33,Slope length–steepness factor (LS) (HYDRO_LS),H,Product of the slope-length and slope-steepness factors (see the calculation in the notes below),30 m; D8 flow routing,Dimensionless,Derived from GLO-30
+34,Distance to channel (HYDRO_dist_stream),H,Euclidean distance to channels defined by flow accumulation ≥1000 cells,30 m; D8 channel network,m,Derived from GLO-30
+35,Channel-pixel density (HYDRO_drain_density_900m),H,Neighborhood proportion of channel pixels converted to a pixel count per unit area,30 m; 61×61 cells (1830 m),cells/km²,Derived from GLO-30
+36,Elevation difference from the downstream channel (HAND) (HYDRO_HAND),H,Elevation difference relative to the downstream channel along the D8 flow path,30 m; D8 channel network,m,Derived from GLO-30
+37,Annual mean temperature (BIO1) (CLIM_bio1),C,BIO1 climate variable; decoded using the source scale/offset,30″ (approximately 1 km); pixel at the sample location,Raw value × 0.1 − 273.15,CHELSA v2.1
+38,Temperature seasonality (BIO4) (CLIM_bio4),C,BIO4 climate variable; decoded using the source scale/offset,30″ (approximately 1 km); pixel at the sample location,Raw value × 0.1,CHELSA v2.1
+39,Annual temperature range (BIO7) (CLIM_bio7),C,BIO7 climate variable; decoded using the source scale/offset,30″ (approximately 1 km); pixel at the sample location,Raw value × 0.1,CHELSA v2.1
+40,Mean temperature of the warmest quarter (BIO10) (CLIM_bio10),C,BIO10 climate variable; decoded using the source scale/offset,30″ (approximately 1 km); pixel at the sample location,Raw value × 0.1 − 273.15,CHELSA v2.1
+41,Annual precipitation (BIO12) (CLIM_bio12),C,BIO12 climate variable; decoded using the source scale/offset,30″ (approximately 1 km); pixel at the sample location,Raw value × 0.1,CHELSA v2.1
+42,Precipitation seasonality (BIO15) (CLIM_bio15),C,BIO15 climate variable; decoded using the source scale/offset,30″ (approximately 1 km); pixel at the sample location,Raw value × 0.1,CHELSA v2.1
+43,Precipitation of the driest quarter (BIO17) (CLIM_bio17),C,BIO17 climate variable; decoded using the source scale/offset,30″ (approximately 1 km); pixel at the sample location,Raw value × 0.1,CHELSA v2.1
+44,Precipitation of the warmest quarter (BIO18) (CLIM_bio18),C,BIO18 climate variable; decoded using the source scale/offset,30″ (approximately 1 km); pixel at the sample location,Raw value × 0.1,CHELSA v2.1
+45,Land-cover class (LC_class),L,ESA nominal class code of the native pixel at the sample location,Nominal 10 m; pixel at the sample location,Nominal category,WorldCover 2021 v200
+46,Forest proportion (LC_forest_90m),L,Proportion of class 10 among all valid pixels in the window,9×9 native cells,0–1,WorldCover 2021 v200
+47,Shrubland proportion (LC_shrub_90m),L,Proportion of class 20 among all valid pixels in the window,9×9 native cells,0–1,WorldCover 2021 v200
+48,Grassland proportion (LC_grass_90m),L,Proportion of class 30 among all valid pixels in the window,9×9 native cells,0–1,WorldCover 2021 v200
+49,Cropland proportion (LC_crop_90m),L,Proportion of class 40 among all valid pixels in the window,9×9 native cells,0–1,WorldCover 2021 v200
+50,Built-up land proportion (LC_built_90m),L,Proportion of class 50 among all valid pixels in the window,9×9 native cells,0–1,WorldCover 2021 v200
+51,Bare land proportion (LC_bare_90m),L,Proportion of class 60 among all valid pixels in the window,9×9 native cells,0–1,WorldCover 2021 v200
+52,Forest proportion (LC_forest_270m),L,Proportion of class 10 among all valid pixels in the window,27×27 native cells,0–1,WorldCover 2021 v200
+53,Shrubland proportion (LC_shrub_270m),L,Proportion of class 20 among all valid pixels in the window,27×27 native cells,0–1,WorldCover 2021 v200
+54,Grassland proportion (LC_grass_270m),L,Proportion of class 30 among all valid pixels in the window,27×27 native cells,0–1,WorldCover 2021 v200
+55,Cropland proportion (LC_crop_270m),L,Proportion of class 40 among all valid pixels in the window,27×27 native cells,0–1,WorldCover 2021 v200
+56,Built-up land proportion (LC_built_270m),L,Proportion of class 50 among all valid pixels in the window,27×27 native cells,0–1,WorldCover 2021 v200
+57,Bare land proportion (LC_bare_270m),L,Proportion of class 60 among all valid pixels in the window,27×27 native cells,0–1,WorldCover 2021 v200
+58,Forest proportion (LC_forest_900m),L,Proportion of class 10 among all valid pixels in the window,91×91 native cells,0–1,WorldCover 2021 v200
+59,Shrubland proportion (LC_shrub_900m),L,Proportion of class 20 among all valid pixels in the window,91×91 native cells,0–1,WorldCover 2021 v200
+60,Grassland proportion (LC_grass_900m),L,Proportion of class 30 among all valid pixels in the window,91×91 native cells,0–1,WorldCover 2021 v200
+61,Cropland proportion (LC_crop_900m),L,Proportion of class 40 among all valid pixels in the window,91×91 native cells,0–1,WorldCover 2021 v200
+62,Built-up land proportion (LC_built_900m),L,Proportion of class 50 among all valid pixels in the window,91×91 native cells,0–1,WorldCover 2021 v200
+63,Bare land proportion (LC_bare_900m),L,Proportion of class 60 among all valid pixels in the window,91×91 native cells,0–1,WorldCover 2021 v200
